@@ -602,8 +602,13 @@ uis.controller('uiSelectCtrl',
 
     var key = e.which;
     
-    if (~[KEY.ENTER,KEY.ESC].indexOf(key)){
-      if (ctrl.items.length > 0 && ctrl.search == EMPTY_SEARCH && !ctrl.allowFormSubmission) {
+    if (~[KEY.ESC].indexOf(key)){
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    if (~[KEY.ENTER].indexOf(key)){
+      if (!((ctrl.items.length === 0 && ctrl.search == EMPTY_SEARCH) && ctrl.allowFormSubmission)) {
         e.preventDefault();
         e.stopPropagation();
       }
