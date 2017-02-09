@@ -9,7 +9,6 @@
     "dist/select.js",
     "dist/select.css"
   ],
-  "version": "0.19.7",
   "license": "MIT",
   "ignore": [
     "**/.*",
