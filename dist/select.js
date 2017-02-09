@@ -1,7 +1,7 @@
 /*!
  * ui-select
  * http://github.com/angular-ui/ui-select
- * Version: 0.19.7 - 2017-02-09T12:44:33.749Z
+ * Version: 0.19.7 - 2017-02-09T13:38:39.845Z
  * License: MIT
  */
 
@@ -119,7 +119,8 @@ var uis = angular.module('ui.select', [])
   appendToBody: false,
   spinnerEnabled: false,
   spinnerClass: 'glyphicon-refresh ui-select-spin',
-  backspaceReset: true
+  backspaceReset: true,
+  allowFormSubmission: true
 })
 
 // See Rename minErr and make it accessible from outside https://github.com/angular/angular.js/issues/6913
@@ -1107,8 +1108,7 @@ uis.directive('uiSelect',
 
         $select.onSelectCallback = $parse(attrs.onSelect);
         $select.onRemoveCallback = $parse(attrs.onRemove);
-        $select.allowFormSubmission = $parse(attrs.allowFormSubmission) || false;
-
+        
         //Set reference to ngModel from uiSelectCtrl
         $select.ngModel = ngModel;
 
@@ -1125,6 +1125,10 @@ uis.directive('uiSelect',
 
         scope.$watch(function () { return scope.$eval(attrs.searchEnabled); }, function(newVal) {
           $select.searchEnabled = newVal !== undefined ? newVal : uiSelectConfig.searchEnabled;
+        });
+
+        scope.$watch(function () { return scope.$eval(attrs.allowFormSubmission); }, function(newVal) {
+          $select.allowFormSubmission = newVal !== undefined ? newVal : uiSelectConfig.allowFormSubmission;
         });
 
         scope.$watch('sortable', function() {

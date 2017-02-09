@@ -59,8 +59,7 @@ uis.directive('uiSelect',
 
         $select.onSelectCallback = $parse(attrs.onSelect);
         $select.onRemoveCallback = $parse(attrs.onRemove);
-        $select.allowFormSubmission = $parse(attrs.allowFormSubmission) || false;
-
+        
         //Set reference to ngModel from uiSelectCtrl
         $select.ngModel = ngModel;
 
@@ -77,6 +76,10 @@ uis.directive('uiSelect',
 
         scope.$watch(function () { return scope.$eval(attrs.searchEnabled); }, function(newVal) {
           $select.searchEnabled = newVal !== undefined ? newVal : uiSelectConfig.searchEnabled;
+        });
+
+        scope.$watch(function () { return scope.$eval(attrs.allowFormSubmission); }, function(newVal) {
+          $select.allowFormSubmission = newVal !== undefined ? newVal : uiSelectConfig.allowFormSubmission;
         });
 
         scope.$watch('sortable', function() {
