@@ -1,10 +1,10 @@
 {
-  "name": "angular-ui-select",  
-  "homepage": "https://github.com/angular-ui/ui-select",
+  "name": "angular-ui-select-submitform",  
+  "homepage": "https://github.com/MartinDeHaan/ui-select-submitform",
   "authors": [
     "AngularUI"
   ],
-  "description": "AngularJS ui-select",
+  "description": "AngularJS ui-select submitform",
   "main": [
     "dist/select.js",
     "dist/select.css"
