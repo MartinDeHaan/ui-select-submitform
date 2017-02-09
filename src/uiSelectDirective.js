@@ -59,6 +59,7 @@ uis.directive('uiSelect',
 
         $select.onSelectCallback = $parse(attrs.onSelect);
         $select.onRemoveCallback = $parse(attrs.onRemove);
+        $select.allowFormSubmission = $parse(attrs.allowFormSubmission) || false;
 
         //Set reference to ngModel from uiSelectCtrl
         $select.ngModel = ngModel;

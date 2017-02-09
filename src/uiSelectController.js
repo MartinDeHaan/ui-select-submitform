@@ -601,10 +601,12 @@ uis.controller('uiSelectCtrl',
   ctrl.searchInput.on('keydown', function(e) {
 
     var key = e.which;
-
+    
     if (~[KEY.ENTER,KEY.ESC].indexOf(key)){
-      e.preventDefault();
-      e.stopPropagation();
+      if (ctrl.items.length > 0 && ctrl.search == EMPTY_SEARCH && !ctrl.allowFormSubmission) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
     }
 
     $scope.$apply(function() {
@@ -642,11 +644,6 @@ uis.controller('uiSelectCtrl',
 
     if(KEY.isVerticalMovement(key) && ctrl.items.length > 0){
       _ensureHighlightVisible();
-    }
-
-    if (key === KEY.ENTER || key === KEY.ESC) {
-      e.preventDefault();
-      e.stopPropagation();
     }
 
   });
