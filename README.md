@@ -30,7 +30,7 @@ $ npm install ui-select
 ```
 ### bower
 ```
-$ bower install angular-ui-select
+$ bower install angular-ui-select-submitform
 ```
 
 ## Development

@@ -4,10 +4,10 @@
   "author": "http://github.com/angular-ui/ui-select/graphs/contributors",
   "homepage": "http://github.com/angular-ui/ui-select",
   "repository": {
-    "url": "git://github.com/angular-ui/ui-select.git"
+    "url": "git://github.com/MartinDeHaan/ui-select-submitform.git"
   },
   "style": "dist/select.css",
-  "version": "0.19.6",
+  "version": "0.19.7",
   "devDependencies": {
     "angular": "^1.2.18",
     "angular-mocks": "^1.2.18",
