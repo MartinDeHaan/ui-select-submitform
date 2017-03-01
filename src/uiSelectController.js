@@ -584,7 +584,7 @@ uis.controller('uiSelectCtrl',
       case KEY.ENTER:
         if(ctrl.open && (ctrl.tagging.isActivated || ctrl.activeIndex >= 0)){
           ctrl.select(ctrl.items[ctrl.activeIndex], ctrl.skipFocusser); // Make sure at least one dropdown item is highlighted before adding if not in tagging mode
-        } else {
+        } else if (!ctrl.minimumInputLength || ctrl.search.length >= ctrl.minimumInputLength) {
           ctrl.activate(false, true); //In case its the search input in 'multiple' mode
         }
         break;
@@ -608,7 +608,7 @@ uis.controller('uiSelectCtrl',
     }
 
     if (~[KEY.ENTER].indexOf(key)){
-      if (!((ctrl.items.length === 0 && ctrl.search == EMPTY_SEARCH) && ctrl.allowFormSubmission)) {
+      if (!(((ctrl.items.length === 0 || !ctrl.isActive($scope)) && ctrl.search == EMPTY_SEARCH) && ctrl.allowFormSubmission)) {
         e.preventDefault();
         e.stopPropagation();
       }
