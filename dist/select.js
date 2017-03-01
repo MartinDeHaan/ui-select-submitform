@@ -1,7 +1,7 @@
 /*!
  * ui-select
  * http://github.com/angular-ui/ui-select
- * Version: 0.19.7 - 2017-03-01T14:01:38.689Z
+ * Version: 0.19.7 - 2017-03-01T16:20:05.709Z
  * License: MIT
  */
 
@@ -907,7 +907,7 @@ uis.controller('uiSelectCtrl',
     }
 
     if (~[KEY.ENTER].indexOf(key)){
-      if (!(((ctrl.items.length === 0 || !ctrl.isActive($scope)) && ctrl.search == EMPTY_SEARCH) && ctrl.allowFormSubmission)) {
+      if (!(((ctrl.items.length === 0 || !ctrl.open) && ctrl.search == EMPTY_SEARCH) && ctrl.allowFormSubmission)) {
         e.preventDefault();
         e.stopPropagation();
       }
