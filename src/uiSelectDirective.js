@@ -82,6 +82,10 @@ uis.directive('uiSelect',
           $select.allowFormSubmission = newVal !== undefined ? newVal : uiSelectConfig.allowFormSubmission;
         });
 
+        scope.$watch(function () { return scope.$eval(attrs.minimumInputLength); }, function (newVal) {
+            $select.minimumInputLength = newVal !== undefined ? newVal : uiSelectConfig.minimumInputLength;
+        });
+
         scope.$watch('sortable', function() {
             var sortable = scope.$eval(attrs.sortable);
             $select.sortable = sortable !== undefined ? sortable : uiSelectConfig.sortable;

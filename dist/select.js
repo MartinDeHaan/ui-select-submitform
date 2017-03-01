@@ -1,7 +1,7 @@
 /*!
  * ui-select
  * http://github.com/angular-ui/ui-select
- * Version: 0.19.7 - 2017-03-01T13:51:24.729Z
+ * Version: 0.19.7 - 2017-03-01T14:01:38.689Z
  * License: MIT
  */
 
@@ -1135,6 +1135,10 @@ uis.directive('uiSelect',
 
         scope.$watch(function () { return scope.$eval(attrs.allowFormSubmission); }, function(newVal) {
           $select.allowFormSubmission = newVal !== undefined ? newVal : uiSelectConfig.allowFormSubmission;
+        });
+
+        scope.$watch(function () { return scope.$eval(attrs.minimumInputLength); }, function (newVal) {
+            $select.minimumInputLength = newVal !== undefined ? newVal : uiSelectConfig.minimumInputLength;
         });
 
         scope.$watch('sortable', function() {
