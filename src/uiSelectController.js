@@ -608,7 +608,7 @@ uis.controller('uiSelectCtrl',
     }
 
     if (~[KEY.ENTER].indexOf(key)){
-      if (!(((ctrl.items.length === 0 || !ctrl.open) && ctrl.search == EMPTY_SEARCH) && ctrl.allowFormSubmission)) {
+      if (!((ctrl.activeIndex == -1 && ctrl.search == EMPTY_SEARCH) && ctrl.allowFormSubmission)) {
         e.preventDefault();
         e.stopPropagation();
       }
