@@ -1,7 +1,7 @@
 /*!
  * ui-select
  * http://github.com/angular-ui/ui-select
- * Version: 0.19.7 - 2017-05-26T14:06:41.013Z
+ * Version: 0.19.7 - 2017-05-30T08:09:19.721Z
  * License: MIT
  */
 
@@ -1127,6 +1127,13 @@ uis.directive('uiSelect',
             $select.focusInput.attr('tabindex', value);
             element.removeAttr('tabindex');
           });
+        }
+
+        if (angular.isDefined(attrs.initialSearch)) {
+            var initialSearch = scope.$eval(attrs.initialSearch);
+            if (initialSearch) {
+                $select.search = initialSearch;
+            }
         }
 
         scope.$watch(function () { return scope.$eval(attrs.searchEnabled); }, function(newVal) {

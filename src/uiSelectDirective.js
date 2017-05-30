@@ -74,6 +74,13 @@ uis.directive('uiSelect',
           });
         }
 
+        if (angular.isDefined(attrs.initialSearch)) {
+            var initialSearch = scope.$eval(attrs.initialSearch);
+            if (initialSearch) {
+                $select.search = initialSearch;
+            }
+        }
+
         scope.$watch(function () { return scope.$eval(attrs.searchEnabled); }, function(newVal) {
           $select.searchEnabled = newVal !== undefined ? newVal : uiSelectConfig.searchEnabled;
         });
