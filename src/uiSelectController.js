@@ -578,6 +578,9 @@ uis.controller('uiSelectCtrl',
           }
         }
         break;
+      case KEY.SPACE:
+        if ((!ctrl.multiple || ctrl.open) && ctrl.activeIndex > -1) ctrl.select(ctrl.items[ctrl.activeIndex], true);
+        break;
       case KEY.TAB:
         if ((!ctrl.multiple || ctrl.open) && ctrl.activeIndex > -1) ctrl.select(ctrl.items[ctrl.activeIndex], true);
         break;

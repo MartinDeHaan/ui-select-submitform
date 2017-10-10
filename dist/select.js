@@ -1,7 +1,7 @@
 /*!
  * ui-select
  * http://github.com/angular-ui/ui-select
- * Version: 0.19.7 - 2017-07-05T13:51:41.027Z
+ * Version: 0.19.7 - 2017-10-10T12:30:48.984Z
  * License: MIT
  */
 
@@ -876,6 +876,9 @@ uis.controller('uiSelectCtrl',
             ctrl.activeIndex = --idxmin;
           }
         }
+        break;
+      case KEY.SPACE:
+        if ((!ctrl.multiple || ctrl.open) && ctrl.activeIndex > -1) ctrl.select(ctrl.items[ctrl.activeIndex], true);
         break;
       case KEY.TAB:
         if ((!ctrl.multiple || ctrl.open) && ctrl.activeIndex > -1) ctrl.select(ctrl.items[ctrl.activeIndex], true);
